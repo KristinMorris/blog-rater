@@ -13,3 +13,55 @@
  *= require_tree .
  *= require_self
  */
+ @font-face {
+   font-family: 'Lobster', cursive;
+ }
+
+ /*Header*/
+
+ .content-wrapper {
+   display: flex;
+ }
+
+ .main_logo {
+   height: 150px;
+   width: 250px;
+ }
+
+ .tag_line {
+   font-family: "Lobster", cursive;
+   align-self: flex-start;
+ }
+
+ .sign_in_boxes {
+   align-self: flex-end;
+
+ }
+
+ /*Join Box*/
+
+ .join_box {
+   display: flex;
+   flex-direction: column;
+   background-color: #d3d3d3;
+ }
+
+ .join_heading {
+   align-self: center;
+   font-size: 26px;
+   font-weight: bold;
+
+ }
+
+ .join_button {
+   align-self: center;
+
+ }
+
+
+
+ /*BODY*/
+
+ .posts {
+   display: flex;
+ }

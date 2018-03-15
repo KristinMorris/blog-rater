@@ -9,6 +9,44 @@
   </head>
 
   <body>
+    <header>
+  		<div class="content-wrapper">
+  				<div class="main_logo">
+            <%= image_tag("Blog-Rater.png", size: "250x150", alt: "Blog Rater Logo") %>
+  					</div>
+  				<div class="tag_line">
+  						<h2>Find, Read, and Rate Your Favourite Blogs</h2>
+  				</div>
+  				<div class="sign_in_boxes">
+  						<label for="username">Username</label>
+  						<input type="text" name="username" id="username">
+  						<label for="password">Password</label>
+  						<input type="password" name="password" id="password">
+  				</div>
+  			</div>
+  </header>
+  <br>
+<br>
+<br>
+	<section>
+		<fieldset>
+		<div class="join_box">
+			<div class="join_heading"
+				<h2> Register for a Free Account to Become a Contributor or Rate Your Favourite Blog Posts</p>
+			</div>
+			<div class="join_button">
+				<input type="submit" value="Join Now">
+			</div>
+		</div>
+	</fieldset>
+	</section>
     <%= yield %>
+    <footer>
+		<a href="#">About Us </a>
+		<a href="#">Guideline </a>
+		<a href="#">FAQ </a>
+		<a href="#">Privacy Policy</a>
+	</footer>
+
   </body>
 </html>
