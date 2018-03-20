@@ -3,7 +3,10 @@
   <head>
     <title>BlogRater</title>
     <%= csrf_meta_tags %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -17,29 +20,42 @@
   				<div class="tag_line">
   						<h2>Find, Read, and Rate Your Favourite Blogs</h2>
   				</div>
-  				<div class="sign_in_boxes">
-  						<label for="username">Username</label>
-  						<input type="text" name="username" id="username">
-  						<label for="password">Password</label>
-  						<input type="password" name="password" id="password">
-  				</div>
+
+          <%= form_for(User.new, url: user_session_path) do |f| %>
+            <div class="field">
+              <%= f.label :email %><br />
+              <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+            </div>
+
+            <div class="field">
+              <%= f.label :password %><br />
+              <%= f.password_field :password, autocomplete: "off" %>
+            </div>
+
+            <div class="actions">
+              <%= f.submit "Log in" %>
+            </div>
+          <% end %>
   			</div>
   </header>
   <br>
 <br>
 <br>
+<%= link_to 'Log out', destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure you want to log out?' } %>
+<% unless current_user.present? %>
 	<section>
 		<fieldset>
 		<div class="join_box">
 			<div class="join_heading"
 				<h2> Register for a Free Account to Become a Contributor or Rate Your Favourite Blog Posts</p>
 			</div>
-			<div class="join_button">
-				<input type="submit" value="Join Now">
-			</div>
+			<%= link_to 'Join Now', new_user_registration_path, class: 'button' %>
 		</div>
 	</fieldset>
 	</section>
+<% end %>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
     <%= yield %>
     <footer>
 		<a href="#">About Us </a>
@@ -47,6 +63,6 @@
 		<a href="#">FAQ </a>
 		<a href="#">Privacy Policy</a>
 	</footer>
-
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   </body>
 </html>
