@@ -19,8 +19,11 @@
 
  /*Header*/
 
- .content-wrapper {
-   display: flex;
+ .header {
+   display: inline-flex;
+   
+   flex-wrap: wrap;
+
  }
 
  .main_logo {
@@ -30,17 +33,18 @@
 
  .tag_line {
    font-family: "Lobster", cursive;
-   align-self: flex-start;
+   font-size: 14px;
+   padding-top: 60px;
  }
 
- .sign_in_boxes {
-   align-self: flex-end;
+ .new_user {
+
 
  }
 
  /*Join Box*/
 
- .join_box {
+ .section {
    display: flex;
    flex-direction: column;
    background-color: #d3d3d3;
