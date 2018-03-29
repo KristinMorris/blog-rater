@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-   <title>Gotit</title>
+   <title>Blog-Rater</title>
    <%= csrf_meta_tags %>
    <link rel=“stylesheet” href=“https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css” integrity=“sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm” crossorigin=“anonymous”>
    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -19,6 +19,20 @@
 
   <body>
     <header>
+      <div class="pos-f-t">
+        <nav class="navbar navbar-dark bg-dark">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse" id="navbarToggleExternalContent">
+            <div class="bg-dark p-4">
+              <h4 class="text-white">Collapsed content</h4>
+              <span class="text-muted">Toggleable via the navbar brand.</span>
+            </div>
+          </div>
+        </nav>
+      </div>
+
   		<div class="content-wrapper">
   				<div class="main_logo">
             <%= image_tag("Blog-Rater.png", size: "250x150", alt: "Blog Rater Logo") %>
