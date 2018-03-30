@@ -3,28 +3,30 @@
 <h1>Posts</h1>
 
 <table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Content</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  
 
   <tbody>
     <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.title %></td>
-        <td><%= post.content %></td>
-        <%= image_tag post.image.url.to_s %>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <div class="row">
+            <div class="col-md-7">
+              <a href="#">
+                  <%= image_tag post.image.url.to_s, class:"img-fluid rounded mb-3 mb-md-0", height:"300px" %>
+                <!-- <img class="img-fluid rounded mb-3 mb-md-0" src="http://placehold.it/700x300" alt=""> -->
+              </a>
+            </div>
+            <div class="col-md-5">
+              <h3><%= post.title %></h3>
+              <p><%=post.content.truncate_words(50) %></p>
+              <%= link_to 'Show', post, class: "btn btn-dark text-light" %></a>
+              <%= link_to 'Edit', edit_post_path(post), class: "btn btn-dark text-light" %></a>
+              <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-dark text-light" %></a>
+            </div>
+          </div>
+
     <% end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Post', new_post_path %>
+<%= link_to 'New Post', new_post_path, class: "btn btn-dark btn-lg btn-block" %>

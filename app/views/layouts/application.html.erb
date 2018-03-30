@@ -19,70 +19,130 @@
 
   <body>
     <header>
-      <div class="pos-f-t">
-        <nav class="navbar navbar-dark bg-dark">
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse" id="navbarToggleExternalContent">
-            <div class="bg-dark p-4">
-              <h4 class="text-white">Collapsed content</h4>
-              <span class="text-muted">Toggleable via the navbar brand.</span>
-            </div>
+
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="main_logo">
+          <%= image_tag("Blog-Rater.png", size: "250x150", alt: "Blog Rater Logo") %>
           </div>
-        </nav>
-      </div>
+        <div class="tag_line">
+            <h4>Find, Read, and Rate Your Favourite Blogs</h4>
+        </div>
 
-  		<div class="content-wrapper">
-  				<div class="main_logo">
-            <%= image_tag("Blog-Rater.png", size: "250x150", alt: "Blog Rater Logo") %>
-  					</div>
-  				<div class="tag_line">
-  						<h4>Find, Read, and Rate Your Favourite Blogs</h4>
-  				</div>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#">Disabled</a>
+            </li>
+          </ul>
+          <div class="content-wrapper">
 
-          <%= form_for(User.new, url: user_session_path) do |f| %>
-            <div class="field">
-              <%= f.label :email %><br />
-              <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-            </div>
 
-            <div class="field">
-              <%= f.label :password %><br />
-              <%= f.password_field :password, autocomplete: "off" %>
-            </div>
+              <%= form_for(User.new, url: user_session_path) do |f| %>
+                <div class="field">
+                  <%= f.label :email %><br />
+                  <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+                </div>
 
-            <div class="actions">
-              <%= f.submit "Log in", class:"btn btn-dark btn-sm" %>
-            </div>
-          <% end %>
-  			</div>
+                <div class="field">
+                  <%= f.label :password %><br />
+                  <%= f.password_field :password, autocomplete: "off" %>
+                </div>
+
+                <div class="actions">
+                  <%= f.submit "Log in", class:"btn btn-dark btn-sm" %>
+                </div>
+              <% end %>
+              <%= link_to 'Log out', destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure you want to log out?' }, class: "btn btn-dark btn-sm" %>
+              <% unless current_user.present? %>
+              <% end %>
+      </nav>
   </header>
-  <br>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+
 <br>
 <br>
-<%= link_to 'Log out', destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure you want to log out?' } %>
-<% unless current_user.present? %>
+<br>
+<section>
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <%= image_tag("goals.png", :alt=>"goals")%>
+    </div>
+    <div class="carousel-item">
+      <%= image_tag("stress.png", :alt=>"stress")%>
+    </div>
+    <div class="carousel-item">
+      <%= image_tag("style.png", :alt=>"style")%>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+</section>
+
 	<section>
-		<fieldset>
-		<div class="join_box">
-			<div class="join_heading"
-				<h2> Register for a Free Account to Become a Contributor or Rate Your Favourite Blog Posts</p>
-			</div>
-			<%= link_to 'Join Now', new_user_registration_path, class: 'button' %>
-		</div>
-	</fieldset>
+
+      <div class="jumbotron jumbotron-fluid">
+          <div class="container">
+            <h1 class="display-4">Join Blog-Rater</h1>
+            <p class="lead">Register for a Free Account to Become a Contributor or Rate Your Favourite Blog Posts.</p>
+            <%= link_to 'Join Now', new_user_registration_path, class:"btn btn-dark btn-sm" %>
+          </div>
+
 	</section>
-<% end %>
+
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
     <%= yield %>
+
     <footer>
-		<a href="#">About Us </a>
-		<a href="#">Guideline </a>
-		<a href="#">FAQ </a>
-		<a href="#">Privacy Policy</a>
+      <nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="#">
+    <%= image_tag("Blog-Rater.png", size: "250x150", alt: "Blog Rater Logo") %>
+  </a>
+  <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+    <li class="nav-item active">
+      <a class="nav-link" href="#">About Us <span class="sr-only">(current)</span></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Guidelines</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">FAQ</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link disabled" href="#">Privacy Policy</a>
+    </li>
+  </ul>
+</nav>
+		
 	</footer>
+
+
+
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   </body>
 </html>
