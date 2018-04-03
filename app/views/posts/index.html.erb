@@ -3,7 +3,7 @@
 <h1>Posts</h1>
 
 <table>
-  
+
 
   <tbody>
     <% @posts.each do |post| %>
@@ -18,9 +18,16 @@
               <h3><%= post.title %></h3>
               <p><%=post.content.truncate_words(50) %></p>
               <%= link_to 'Show', post, class: "btn btn-dark text-light" %></a>
+              <% if current_user == post.user %>
               <%= link_to 'Edit', edit_post_path(post), class: "btn btn-dark text-light" %></a>
               <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-dark text-light" %></a>
+              <%end%>
+              <%= link_to "Upvote" , like_post_path(post),class: "btn btn-dark text-light" , method: :put %>
+              <%= post.get_upvotes.size %>
+              <%= link_to "Downvote", dislike_post_path(post),class: "btn btn-dark text-light" , method: :put %>
+              <%= post.get_downvotes.size %>
             </div>
+
           </div>
 
     <% end %>

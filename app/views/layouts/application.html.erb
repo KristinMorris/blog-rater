@@ -71,9 +71,7 @@
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
 
-<br>
-<br>
-<br>
+
 <section>
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
@@ -104,13 +102,14 @@
 </section>
 
 	<section>
-
+      <% if current_user %>
       <div class="jumbotron jumbotron-fluid">
           <div class="container">
             <h1 class="display-4">Join Blog-Rater</h1>
             <p class="lead">Register for a Free Account to Become a Contributor or Rate Your Favourite Blog Posts.</p>
             <%= link_to 'Join Now', new_user_registration_path, class:"btn btn-dark btn-sm" %>
           </div>
+          <%end%>
 
 	</section>
 
@@ -138,7 +137,7 @@
     </li>
   </ul>
 </nav>
-		
+
 	</footer>
 
 
