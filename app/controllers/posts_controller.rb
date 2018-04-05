@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.all.sort_by {|p| p.get_dislikes.size - p.get_likes.size}
   end
 
   # GET /posts/1

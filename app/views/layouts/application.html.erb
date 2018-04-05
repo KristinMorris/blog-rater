@@ -102,7 +102,7 @@
 </section>
 
 	<section>
-      <% if current_user %>
+      <% if !user_signed_in? %>
       <div class="jumbotron jumbotron-fluid">
           <div class="container">
             <h1 class="display-4">Join Blog-Rater</h1>
